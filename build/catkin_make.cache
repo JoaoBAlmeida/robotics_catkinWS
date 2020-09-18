@@ -1,0 +1,2 @@
+beginner_tutorials:learning_joy
+-DCATKIN_DEVEL_PREFIX=/home/barbosa/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/barbosa/catkin_ws/install -G Unix Makefiles
