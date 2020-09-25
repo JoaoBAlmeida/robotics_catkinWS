@@ -1,2 +1,9 @@
 # Hashes of file build rules.
+e510cca88cb6cff5110eea0ae192b162 /home/barbosa/catkin_ws/devel/include/challenge02/Pos.h
+ecf588e20159162e1d5579c36b1ba82a /home/barbosa/catkin_ws/devel/lib/python2.7/dist-packages/challenge02/msg/_Pos.py
+4b9091e56a34c3c2f0b8d6cdfc4ac8f4 /home/barbosa/catkin_ws/devel/lib/python2.7/dist-packages/challenge02/msg/__init__.py
+0039f0c90df9028e3b86e9c2116c3631 /home/barbosa/catkin_ws/devel/share/common-lisp/ros/challenge02/msg/Pos.lisp
+0cdc888bdd3258253ed70832df2f4689 /home/barbosa/catkin_ws/devel/share/gennodejs/ros/challenge02/msg/Pos.js
+7ad7bb4cd53c64f06e06ac354421881f /home/barbosa/catkin_ws/devel/share/roseus/ros/challenge02/manifest.l
+aed13a8874ca579bf4b16452fda43ffd /home/barbosa/catkin_ws/devel/share/roseus/ros/challenge02/msg/Pos.l
 9f107b0c4fd1603791d8d39fe16396ad CMakeFiles/clean_test_results

@@ -1,0 +1,8 @@
+prefix=/home/barbosa/catkin_ws/install
+
+Name: challenge_02
+Description: Description of challenge_02
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
