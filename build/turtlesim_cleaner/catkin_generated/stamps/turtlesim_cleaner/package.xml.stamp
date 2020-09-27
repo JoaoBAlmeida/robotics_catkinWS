@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>challenge_02</name>
+  <name>turtlesim_cleaner</name>
   <version>0.0.0</version>
   <description>Challenge 02 for robotics class</description>
   

@@ -68,40 +68,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -134,6 +100,40 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,51 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
-.PHONY : learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
-
-# Convenience name for target.
-turtle_teleop_joy: learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
-
-.PHONY : turtle_teleop_joy
-
-# fast build rule for target.
-turtle_teleop_joy/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtle_teleop_joy.dir/build.make learning_joy/CMakeFiles/turtle_teleop_joy.dir/build
-.PHONY : turtle_teleop_joy/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
 learning_joy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
 	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 .PHONY : learning_joy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
@@ -226,36 +181,6 @@ sensor_msgs_generate_messages_py: learning_joy/CMakeFiles/sensor_msgs_generate_m
 sensor_msgs_generate_messages_py/fast:
 	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make learning_joy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 learning_joy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
@@ -273,49 +198,19 @@ sensor_msgs_generate_messages_nodejs/fast:
 .PHONY : sensor_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
+.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+turtlesim_generate_messages_cpp: learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_cpp
+.PHONY : turtlesim_generate_messages_cpp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make learning_joy/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_py: learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-.PHONY : turtlesim_generate_messages_py
-
-# fast build rule for target.
-turtlesim_generate_messages_py/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build
-.PHONY : turtlesim_generate_messages_py/fast
+turtlesim_generate_messages_cpp/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
+.PHONY : turtlesim_generate_messages_cpp/fast
 
 # Convenience name for target.
 learning_joy/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
@@ -348,34 +243,34 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+std_srvs_generate_messages_nodejs: learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : std_srvs_generate_messages_nodejs
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+std_srvs_generate_messages_nodejs/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
+.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_nodejs: learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+turtlesim_generate_messages_eus: learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_nodejs
+.PHONY : turtlesim_generate_messages_eus
 
 # fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make learning_joy/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
+turtlesim_generate_messages_eus/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build
+.PHONY : turtlesim_generate_messages_eus/fast
 
 # Convenience name for target.
 learning_joy/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
@@ -408,66 +303,6 @@ std_srvs_generate_messages_cpp/fast:
 .PHONY : std_srvs_generate_messages_cpp/fast
 
 # Convenience name for target.
-learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make learning_joy/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_cpp: learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-
-.PHONY : turtlesim_generate_messages_cpp
-
-# fast build rule for target.
-turtlesim_generate_messages_cpp/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
-.PHONY : turtlesim_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
-.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_eus: learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
-
-.PHONY : turtlesim_generate_messages_eus
-
-# fast build rule for target.
-turtlesim_generate_messages_eus/fast:
-	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build
-.PHONY : turtlesim_generate_messages_eus/fast
-
-# Convenience name for target.
 learning_joy/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule:
 	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
 .PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
@@ -481,6 +316,96 @@ turtlesim_generate_messages_nodejs: learning_joy/CMakeFiles/turtlesim_generate_m
 turtlesim_generate_messages_nodejs/fast:
 	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build
 .PHONY : turtlesim_generate_messages_nodejs/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_eus: learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+.PHONY : std_srvs_generate_messages_eus
+
+# fast build rule for target.
+std_srvs_generate_messages_eus/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_lisp: learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+.PHONY : learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_py: learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+.PHONY : turtlesim_generate_messages_py
+
+# fast build rule for target.
+turtlesim_generate_messages_py/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build
+.PHONY : turtlesim_generate_messages_py/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+# Convenience name for target.
+learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
+.PHONY : learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
+
+# Convenience name for target.
+turtle_teleop_joy: learning_joy/CMakeFiles/turtle_teleop_joy.dir/rule
+
+.PHONY : turtle_teleop_joy
+
+# fast build rule for target.
+turtle_teleop_joy/fast:
+	cd /home/barbosa/catkin_ws/build && $(MAKE) -f learning_joy/CMakeFiles/turtle_teleop_joy.dir/build.make learning_joy/CMakeFiles/turtle_teleop_joy.dir/build
+.PHONY : turtle_teleop_joy/fast
 
 src/turtle_teleop_joy.o: src/turtle_teleop_joy.cpp.o
 
@@ -516,33 +441,28 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... turtle_teleop_joy"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... edit_cache"
 	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... test"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... rebuild_cache"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... turtlesim_generate_messages_py"
+	@echo "... turtlesim_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... list_install_components"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... turtlesim_generate_messages_eus"
 	@echo "... turtlesim_generate_messages_lisp"
 	@echo "... install"
 	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... turtlesim_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... turtlesim_generate_messages_eus"
 	@echo "... turtlesim_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... rebuild_cache"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... turtlesim_generate_messages_py"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... install/strip"
+	@echo "... turtle_teleop_joy"
 	@echo "... src/turtle_teleop_joy.o"
 	@echo "... src/turtle_teleop_joy.i"
 	@echo "... src/turtle_teleop_joy.s"

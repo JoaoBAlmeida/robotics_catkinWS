@@ -432,6 +432,12 @@ std_srvs_DIR:PATH=/opt/ros/melodic/share/std_srvs/cmake
 //The directory containing a CMake configuration file for turtlesim.
 turtlesim_DIR:PATH=/opt/ros/melodic/share/turtlesim/cmake
 
+//Value Computed by CMake
+turtlesim_cleaner_BINARY_DIR:STATIC=/home/barbosa/catkin_ws/build/turtlesim_cleaner
+
+//Value Computed by CMake
+turtlesim_cleaner_SOURCE_DIR:STATIC=/home/barbosa/catkin_ws/src/turtlesim_cleaner
+
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
 
